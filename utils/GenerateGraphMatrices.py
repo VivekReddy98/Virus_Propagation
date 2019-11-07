@@ -21,6 +21,8 @@ class GenerateGraphMatrices():
 	def GenGraphObj(self, EdgeFilePath):
 		with open(EdgeFilePath,"r") as f:
 			count_vertices_edges = f.readline().strip().split(" ")
+			self.numVertices = int(count_vertices_edges[0])
+			self.numEdges = int(count_vertices_edges[1])
 			self.__CreateIdentity(int(count_vertices_edges[0]))
 			for line in f:
 				edges = line.strip().split(" ")
@@ -33,8 +35,12 @@ class GenerateGraphMatrices():
 	def GenSystemMatrix(self, alpha, beta):
 		return self.Identity.multiply(1-float(alpha)) + self.AdjMatrix.multiply(float(beta))
 
-	def ReturnADJI(self):
-		return self.Identity, self.AdjMatrix
+	# def ReturnADJI(self):
+	# 	return self.Identity, self.AdjMatrix
+
+	# def GetGraph(self):
+	# 	return self.Graph
+
 
 class StrengthAlter():
 	def __init__(self, mat1, mat2): 
