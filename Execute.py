@@ -23,13 +23,14 @@ if __name__ == '__main__':
 	# print(EffStren1)
 	# print(EffStren2)
 
-	results_dir = "/results/sim_results"
+	results_dir = "results/sim_results"
 	A1 = "datasets/alternating/alternating1.network"
 	A2 = "datasets/alternating/alternating2.network"
 	with open("hyper_params.json") as f:
 		hyper = json.load(f)
 	Simulate = Simulator(A1, A2, results_dir)
-	infected_nodes = Simulate.start(hyper['t']['1'], hyper['alpha']['1'], hyper['beta']['1'])
+	infected_nodes = Simulate.start(100, float(hyper['alpha']['1']), float(hyper['beta']['1']))
+	#int(hyper['t']['1'])
 	Simulate.print_stats()
 
 
