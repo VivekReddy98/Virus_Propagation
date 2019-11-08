@@ -29,8 +29,8 @@ if __name__ == '__main__':
 	with open("hyper_params.json") as f:
 		hyper = json.load(f)
 	Simulate = Simulator(A1, A2, results_dir)
-	infected_nodes = Simulate.start(100, float(hyper['alpha']['1']), float(hyper['beta']['1']))
-	#int(hyper['t']['1'])
+	Simulate.initialize()
+	infected_nodes = Simulate.start(int(hyper['t']['1']), float(hyper['alpha']['2']), float(hyper['beta']['2']))
 	Simulate.print_stats()
 
 

@@ -24,7 +24,6 @@ class Simulator():
 		return None
 
 	def start(self, num_TimeSteps, alpha, beta):
-		self.initialize()
 		nodes_by_time = [self.zombies]
 		for i in range(1, num_TimeSteps+1):
 			if i%2!=0:
