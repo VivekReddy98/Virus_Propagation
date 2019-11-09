@@ -32,23 +32,28 @@ if __name__ == '__main__':
 	Simulate = Simulator(A1, A2, results_dir)
 	Simulate.initialize()
 	#int(hyper['t']['1'])
-	infected_nodes = Simulate.start(20, float(hyper['alpha']['1']), float(hyper['beta']['1']))
+	infected_nodes = Simulate.start(100, float(hyper['alpha']['1']), float(hyper['beta']['1']))
 	Simulate.print_stats()
 
-	print(".............................................................................................................")
+	# print("..........................................Policy A...........................................................")
+
+	# Immunize = Policy(A1, A2, results_dir)
+	# Immunize.A(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
+
+	print("..........................................Policy B...........................................................")
 
 	Immunize = Policy(A1, A2, results_dir)
-	infected_nodes = Immunize.A(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
+	Immunize.B(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 50)
 
-	print(".............................................................................................................")
+	# print("..........................................Policy C...........................................................")
 
-	Simulate = Simulator(A1, A2, results_dir)
-	Simulate.initialize()
-	#int(hyper['t']['1'])
-	infected_nodes = Simulate.start(20, float(hyper['alpha']['1']), float(hyper['beta']['1']))
+	# Immunize = Policy(A1, A2, results_dir)
+	# Immunize.C(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
+
+	print("..........................................Policy D...........................................................")
 
 	Immunize = Policy(A1, A2, results_dir)
-	infected_nodes = Immunize.B(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
+	Immunize.D(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 50)
 
 
 
