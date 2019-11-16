@@ -35,20 +35,20 @@ if __name__ == '__main__':
 	infected_nodes = Simulate.start(100, float(hyper['alpha']['1']), float(hyper['beta']['1']))
 	Simulate.print_stats()
 
-	# print("..........................................Policy A...........................................................")
+	print("..........................................Policy A...........................................................")
 
-	# Immunize = Policy(A1, A2, results_dir)
-	# Immunize.A(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
+	Immunize = Policy(A1, A2, results_dir)
+	Immunize.A(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
 
 	print("..........................................Policy B...........................................................")
 
 	Immunize = Policy(A1, A2, results_dir)
 	Immunize.B(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 50)
 
-	# print("..........................................Policy C...........................................................")
+	print("..........................................Policy C...........................................................")
 
-	# Immunize = Policy(A1, A2, results_dir)
-	# Immunize.C(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
+	Immunize = Policy(A1, A2, results_dir)
+	Immunize.C(200, float(hyper['alpha']['1']), float(hyper['beta']['1']), infected_nodes, results_dir, 20)
 
 	print("..........................................Policy D...........................................................")
 
