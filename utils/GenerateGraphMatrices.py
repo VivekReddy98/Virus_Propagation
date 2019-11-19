@@ -31,7 +31,7 @@ class GenerateGraphMatrices():
 		self.AdjMatrix = nx.to_scipy_sparse_matrix(self.Graph, format='csc')
 		#print("The Matrices have been computed and are available for usage")
 		return None
-
+		
 	def GenSystemMatrix(self, alpha, beta):
 		return self.Identity.multiply(1-float(alpha)) + self.AdjMatrix.multiply(float(beta))
 

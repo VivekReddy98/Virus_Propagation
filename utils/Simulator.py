@@ -24,6 +24,7 @@ class Simulator():
 		return None
 
 	def start(self, num_TimeSteps, alpha, beta):
+		self.initialize()
 		nodes_by_time = [self.zombies]
 		for i in range(1, num_TimeSteps+1):
 			if i%2!=0:
@@ -49,6 +50,9 @@ class Simulator():
 		dict_values = self.stats_dict['frac_infected']
 		for key, value in dict_values.items():
 			print("At time {}, the number of nodes infected is {}".format(key, value*self.numVertices))
+
+	def give_stats(self):
+		return self.stats_dict
 
 class TimeStep():
 	def __init__(self, Graph, alpha, beta, nodes):
@@ -80,20 +84,3 @@ class TimeStep():
 		self.zombies = self.zombies.union(zombified_nodes)
 		#print(len(self.zombies))
 		return None
-
-
-
-
-
-
-
-
-
-			
-
-
-
-
-
-
-

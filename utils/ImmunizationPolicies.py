@@ -51,16 +51,16 @@ class Policy(Simulator):
 		self.initialize()
 		self.zombies = zombies
 		print("Before Immunization: {}".format(len(self.zombies)))
-		immunized_nodes = set(random.sample(self.zombies, k))
+		immunized_nodes = set(random.sample([i for i in range(0, self.numVertices)], k))
 		self.zombies = self.zombies.difference(immunized_nodes)
 		print("After Immunization: {}".format(len(self.zombies)))
 		self.stats_dict['frac_infected'][0] = len(self.zombies)/self.numVertices
-		self.zombies = self.start(itr, alpha, beta)
-		print("After Immunization and Simulation: {}".format(len(self.zombies)))
-		if verbose:
-			self.print_stats()
-		with open(self.results_path+'/simulation_stats_'+'PolA'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
-		 	json.dump(self.stats_dict, f)
+		#self.zombies = self.start(itr, alpha, beta)
+		#print("After Immunization and Simulation: {}".format(len(self.zombies)))
+		# if verbose:
+		# 	self.print_stats()
+		# with open(self.results_path+'/simulation_stats_'+'PolA'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
+		#  	json.dump(self.stats_dict, f)
 		return self.zombies
 
 	def B(self, k, alpha, beta, zombies, results_path, itr, verbose=True):
@@ -77,12 +77,12 @@ class Policy(Simulator):
 		self.zombies = self.zombies.difference(set(immunized_nodes))
 		print("After Immunization: {}".format(len(self.zombies)))
 		self.stats_dict['frac_infected'][0] = len(self.zombies)/self.numVertices
-		self.zombies = self.start(itr, alpha, beta)
-		print("After Immunization and Simulation: {}".format(len(self.zombies)))
-		if verbose:
-			self.print_stats()
-		with open(self.results_path+'/simulation_stats_'+'PolB'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
-		 	json.dump(self.stats_dict, f)
+		# self.zombies = self.start(itr, alpha, beta)
+		# print("After Immunization and Simulation: {}".format(len(self.zombies)))
+		# if verbose:
+		# 	self.print_stats()
+		# with open(self.results_path+'/simulation_stats_'+'PolB'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
+		#  	json.dump(self.stats_dict, f)
 		return self.zombies
 
 	def C(self, k, alpha, beta, zombies, results_path, itr, verbose=True):
@@ -116,13 +116,13 @@ class Policy(Simulator):
 		self.zombies = self.zombies.difference(set(immunized_nodes))
 		print("After Immunization: {}".format(len(self.zombies)))
 
-		self.stats_dict['frac_infected'][0] = len(self.zombies)/self.numVertices
-		self.zombies = self.start(itr, alpha, beta)
-		print("After Immunization and Simulation: {}".format(len(self.zombies)))
-		if verbose:
-			self.print_stats()
-		with open(self.results_path+'/simulation_stats_'+'PolC'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
-			 json.dump(self.stats_dict, f)
+		# self.stats_dict['frac_infected'][0] = len(self.zombies)/self.numVertices
+		# self.zombies = self.start(itr, alpha, beta)
+		# print("After Immunization and Simulation: {}".format(len(self.zombies)))
+		# if verbose:
+		# 	self.print_stats()
+		# with open(self.results_path+'/simulation_stats_'+'PolC'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
+		# 	 json.dump(self.stats_dict, f)
 		return self.zombies
 
 	def __give_common_nodes(self, im1, im2, k):
@@ -152,13 +152,13 @@ class Policy(Simulator):
 
 		self.zombies = self.zombies.difference(set(immunized_nodes))
 		print("After Immunization: {}".format(len(self.zombies)))
-		self.stats_dict['frac_infected'][0] = len(self.zombies)/self.numVertices
-		self.zombies = self.start(itr, alpha, beta)
-		print("After Immunization and Simulation: {}".format(len(self.zombies)))
-		if verbose:
-			self.print_stats()
-		with open(self.results_path+'/simulation_stats_'+'PolD'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
-			 json.dump(self.stats_dict, f)
+		# self.stats_dict['frac_infected'][0] = len(self.zombies)/self.numVertices
+		# self.zombies = self.start(itr, alpha, beta)
+		# print("After Immunization and Simulation: {}".format(len(self.zombies)))
+		# if verbose:
+		# 	self.print_stats()
+		# with open(self.results_path+'/simulation_stats_'+'PolD'+"_"+str(alpha)+"_"+str(beta)+".json", "w+") as f:
+		# 	 json.dump(self.stats_dict, f)
 		return self.zombies
 
 class TimeStep_Immune(TimeStep):
