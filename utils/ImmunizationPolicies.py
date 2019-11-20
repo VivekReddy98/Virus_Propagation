@@ -55,6 +55,10 @@ class Policy(Simulator):
 		self.zombies = self.zombies.difference(immunized_nodes)
 		print("After Immunization: {}".format(len(self.zombies)))
 		self.stats_dict['frac_infected'][0] = len(self.zombies)/self.numVertices
+		self.Graph1.remove_nodes_from(immunized_nodes) # Will remove edges and nodes
+		self.Graph2.remove_nodes_from(immunized_nodes)
+		self.Graph1.add_nodes_from(immunized_nodes) #Will only add edges
+		self.Graph2.add_nodes_from(immunized_nodes)
 		#self.zombies = self.start(itr, alpha, beta)
 		#print("After Immunization and Simulation: {}".format(len(self.zombies)))
 		# if verbose:
