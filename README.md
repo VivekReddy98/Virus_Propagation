@@ -1,5 +1,5 @@
 # Virus_Propagation
-Immunizing a Virus Propagated Time-Varying COntact Network with a limited vaccines using different immunization policies.
+Immunizing a Virus Propagated Time-Varying Contact Network with a limited vaccines using different immunization policies.
 
 ## Project Setup Guide:
 
